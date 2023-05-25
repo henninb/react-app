@@ -5,7 +5,7 @@
 #   exit 1
 # fi
 
-server_name="hornsup"
+server_name="foo"
 server_subject="/C=US/ST=Texas/L=Denton/O=Brian LLC/OU=None/CN=${server_name}"
 rootca_subject="/C=US/ST=Texas/L=Denton/O=Brian LLC/OU=None/CN=Brian LLC rootCA"
 
@@ -89,7 +89,7 @@ openssl verify -CAfile "$HOME/ssl/rootCA.pem" -verbose "./${server_name}.crt"
 
 rm -rf *.csr
 
-cp -vi ${server_name}.crt "ssl/${server_name}-example-cert.pem"
-cp -vi ${server_name}.key "ssl/${server_name}-example-key.pem"
+cp -vi ${server_name}.crt "ssl/cert.pem"
+cp -vi ${server_name}.key "ssl/key.pem"
 
 exit 0
