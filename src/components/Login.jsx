@@ -80,9 +80,6 @@ export default function Login() {
           </button>
                 </form>
             </div>
-         <a href="/account/brian">account-brian</a>
-         <a href="/account/active">account-active</a>
-         <a href="/account/delete">account-delete</a>
         </div>
     );
 };
