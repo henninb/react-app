@@ -21,6 +21,21 @@ module.exports = function (app) {
   );
 
   app.use(
+    "/feed/json/nhl-2022/minnesota-wild",
+    createProxyMiddleware({
+      target:
+        "https://fixturedownload.com",
+      // secure: true,
+      // loglevel: 'debug',
+      headers: {
+        accept: "application/json",
+        method: "GET",
+      },
+      changeOrigin: true,
+    })
+  );
+
+  app.use(
     "/feed/json/nba-2021/minnesota-timberwolves",
     createProxyMiddleware({
       target:
@@ -50,9 +65,6 @@ module.exports = function (app) {
         method: "GET",
       },
       changeOrigin: true,
-      // router: {
-      //   "/api/admin": "https://culture.seocho.go.kr:3000",
-      // },
     })
   );
 
