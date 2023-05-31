@@ -1,6 +1,5 @@
 import { useEffect, useCallback } from 'react'; //useState
 import axios from 'axios';
-// import cheerio from 'cheerio';
 
 export default function Temperature() {
 
@@ -41,12 +40,10 @@ export default function Temperature() {
      // Now you can use formData.get('foo'), for example.
 
        try {
-        const response = await axios.post("/api/celsius", data,
-        {
+        const response = await axios.post("/api/celsius", data, {
           headers: { 'Content-Type': 'application/json', }
         }
         )
-        console.log('apiCall was made.');
          console.log(response.data);
        } catch(error) {
          if(error) {
