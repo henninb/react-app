@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./Login";
+import Landing from "./Landing";
 import HockeyScores from "./HockeyScores";
 import Temperature from "./Temperature";
 import Home from "./Home";
@@ -11,6 +12,7 @@ export default function AllRoutes() {
     <div>
       <BrowserRouter>
           <Routes>
+            <Route path="/landing" element={<Landing />} />
             <Route path="/login" element={<Login />} />
             <Route path="/nhl" element={<HockeyScores />} />
             <Route path="/temperature" element={<Temperature />} />

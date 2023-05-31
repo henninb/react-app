@@ -1,9 +1,11 @@
-import { useEffect, useCallback } from 'react'; //useState
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 export default function Temperature() {
+  // const [convertedTemp, setConvertedTemp] = useState('');
+  const [convertedTemp, setConvertedTemp] = useState(1.0);
 
-  async function toFahrenheit(event) {
+  const toFahrenheit = async (event) => {
      event.preventDefault()
      let celsius = document.getElementById("celsius").value;
      console.log(celsius);
@@ -16,8 +18,8 @@ export default function Temperature() {
           headers: { 'Content-Type': 'application/json', }
         }
         )
-        console.log('apiCall was made.');
          console.log(response.data);
+         //setConvertedTemp(response.data);
        } catch(error) {
          if(error) {
            console.log(error.data);
@@ -27,7 +29,7 @@ export default function Temperature() {
        }
   }
 
-  async function toCelsius(event) {
+  const toCelsius = async (event) => {
      event.preventDefault()
 
      let fahrenheit = document.getElementById("fahrenheit").value;
@@ -45,6 +47,7 @@ export default function Temperature() {
         }
         )
          console.log(response.data);
+         // setConvertedTemp(response.data);
        } catch(error) {
          if(error) {
            console.log(error.data);
@@ -99,6 +102,9 @@ export default function Temperature() {
 
     return (
         <div>
+      {convertedTemp && (
+        <p style={{ fontWeight: 'bold' }}>Converted temperature: {convertedTemp}</p>
+      )}
            <form name="temperature-input">
            <label>fahrenheit</label>
            <input type="text" name="fahrenheit" id="fahrenheit" />

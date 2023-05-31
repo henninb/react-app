@@ -1,9 +1,9 @@
 version: "3.7"
 services:
   raspi-finance-react:
-    image: example-react
-    hostname: example-react
-    container_name: example-react
+    image: react-app
+    hostname: react-app
+    container_name: react-app
     restart: always
     build:
       context: ./

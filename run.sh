@@ -7,9 +7,9 @@ mkdir -p ssl
 npm install
 
 npm run build
-docker stop example-react
-docker rm -f example-react
-docker rmi example-react
+docker stop react-app
+docker rm -f react-app
+docker rmi react-app
 docker compose -f docker-compose.yml up -d
 echo npm start
 

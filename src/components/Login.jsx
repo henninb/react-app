@@ -47,10 +47,15 @@ export default function Login() {
     try {
       let response = await userLogin(data);
       console.log("response: " + JSON.stringify(response));
-      window.location.href = '/'
+      window.location.href = '/landing'
     } catch (error) {
+      // console.log(error.data);
+      //window.location.href = '/login'
+      if (error.response && error.response.status === 401) {
+        const errorMessage = document.querySelector(".error-message");
+        errorMessage.innerText = "Failed login. Please check your credentials.";
+      }
       console.log(error.data);
-      window.location.href = '/login'
     }
   };
 
@@ -74,6 +79,7 @@ export default function Login() {
                  </span>
                </div>
                <input type="password" className="form-control" placeholder="Password" id="password" name="password" />
+               <div className="error-message"></div>
              </div>
       <button type="submit" onClick={handleClick}>
             login
